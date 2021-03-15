@@ -23,8 +23,9 @@
   body {
     margin: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: subpixel-antialiased;
   }
-  
+
   /**
    * Render the `main` element consistently in IE.
    */
