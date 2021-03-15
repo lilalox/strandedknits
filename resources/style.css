@@ -6,13 +6,13 @@
 @font-face {
     font-family: Nordica;
     src: url("./fonts/nordica/NordicaRegular.otf") format("otf");
-    font-weight: normal;
+    font-weight: 400;
   }
 
 @font-face {
     font-family: Nordica;
-    src: url("./fonts/nordica/NordicaHairline.otf") format("otf");
-    font-weight: lighter;
+    src: url("./fonts/nordica/NordicaThin.otf") format("otf");
+    font-weight: 300;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap');
@@ -22,7 +22,7 @@ html {
     font-size: 16px;
     color: var(--dark1);
     font-family: Nordica, Arial, sans-serif;
-    font-weight: normal;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
@@ -74,7 +74,7 @@ a {
 .sidebar #title #presentation {
     grid-area: presentation;
     align-self: start;
-    font-weight: lighter;
+    font-weight: 300;
     padding: 0.5rem;
     margin: 0;
 }
@@ -99,7 +99,7 @@ a {
 .sidebar nav>ul>li>a {
     display: block;
     text-align: center;
-    font-weight: lighter;
+    font-weight: 300;
     color: var(--light1);
     padding: 1rem;
     border-bottom: 0.15rem solid transparent;
@@ -122,7 +122,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 10px;
     padding: 10px;
-    font-weight: lighter;
+    font-weight: 300;
 }
 
 article {
@@ -156,22 +156,22 @@ article a>img:hover {
 
 article h2 {
     font-size: 1.25rem;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 article .yarn::before {
     content: "Yarn: ";
-    font-weight: normal;
+    font-weight: 400;
 }
 
 article .colors::before {
     content: "Colors: ";
-    font-weight: normal;
+    font-weight: 400;
 }
 
 article .date::before {
     content: "Date completed: ";
-    font-weight: normal;
+    font-weight: 400;
 }
 
 footer {
@@ -242,7 +242,7 @@ footer {
 
     .sidebar nav>ul>li>a:hover {
         border: none;
-        font-weight: normal;
+        font-weight: 400;
     }
 
 }
