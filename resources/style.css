@@ -1,0 +1,248 @@
+:root {
+    --dark1: #005676;
+    --light1: #eee;
+}
+
+@font-face {
+    font-family: Nordica;
+    src: url("./fonts/nordica/NordicaRegular.otf") format("otf");
+    font-weight: normal;
+  }
+
+@font-face {
+    font-family: Nordica;
+    src: url("./fonts/nordica/NordicaHairline.otf") format("otf");
+    font-weight: lighter;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap');
+
+/* Universal styles */
+html {
+    font-size: 16px;
+    color: var(--dark1);
+    font-family: Nordica, Arial, sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+body {
+    display: grid;
+    grid-template: auto-fit / 1fr;
+    grid-template-areas:"sidebar"
+                        "main"
+                        "footer";
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Base styling: small (576-786px) */
+.sidebar {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-areas:"head"
+                        "nav";
+    background-color: var(--dark1);
+    color: var(--light1);
+}
+
+.sidebar #title {
+    grid-area: head;
+    display: grid;
+    grid-template-areas:"img title"
+                        "img presentation";
+}
+
+.sidebar img {
+    grid-area: img;
+    width: 120px;
+    justify-self: center;
+    align-self: center;
+    padding: 10px;
+}
+
+.sidebar #title h2 {
+    grid-area: title;
+    font-weight: normal;
+    font-size: 1.25rem;
+    align-self: end;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.sidebar #title #presentation {
+    grid-area: presentation;
+    align-self: start;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.sidebar nav {
+    grid-area: nav;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar nav>ul {    
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav>ul>li {
+    list-style: none;
+}
+
+.sidebar nav>ul>li>a {
+    display: block;
+    text-align: center;
+    color: var(--light1);
+    padding: 1rem;
+    border-bottom: 0.15rem solid transparent;
+}
+
+.sidebar nav>ul>li>a:hover {
+    border-bottom-color: var(--light1);
+}
+
+.sidebar nav>ul>li>a:active {
+    background-color: var(--light1);
+    color: var(--dark1);
+    border-bottom-color: var(--dark1);
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+article {
+    background-color: var(--light1);
+    display: flex;
+    flex-flow: column;
+    align-content: flex-start;
+    padding: 10px;
+
+}
+
+article a {
+    width: 100%;
+    height: 100%;
+}
+
+article a>img {
+    height: 270px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50%;
+    transition: max-height 1s ease 0s;
+    -webkit-transition: max-height 1s ease 0s;
+}
+
+article a>img:hover {
+    height: auto;
+    transition: max-height 1s ease 0s;
+    -webkit-transition: max-height 1s ease 0s;
+}
+
+article h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+article .yarn::before {
+    content: "Yarn: ";
+    font-weight: normal;
+}
+
+article .colors::before {
+    content: "Colors: ";
+    font-weight: normal;
+}
+
+article .date::before {
+    content: "Date completed: ";
+    font-weight: normal;
+}
+
+footer {
+    background-color: var(--dark1);
+    color: var(--light1);
+    grid-area: footer;
+    padding: 10px;
+    font-size: 0.75rem;
+}
+
+/* Layout for medium to extra large devices */
+@media (min-width: 1200px) {
+    body {
+        grid-template: 90% 10% / minmax(260px, 1fr) 4fr;
+        grid-template-areas:"sidebar main"
+                            "footer main";
+
+        /* Fixed sidebar for medium+ devices */
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    main {
+        overflow-y: scroll;
+    }
+}
+
+/* Sidebar single column format for small and large devices */
+@media (max-width: 575.98px), (min-width: 1200px) {
+    .sidebar {
+        align-content: start;
+    }
+
+    .sidebar img {
+        margin-top: 20px;
+    }
+
+    .sidebar #title {
+        grid-template-areas:"img"
+                            "title"
+                            "presentation";
+        justify-items: center;
+    }
+
+    .sidebar #title #presentation {
+        text-align: center;
+    }
+
+    .sidebar #title h2 {
+        margin-top: 2rem;
+    }
+
+    .sidebar nav {
+        padding: 0;
+        margin-top: 2rem;
+    }
+
+    .sidebar nav>ul {
+        flex-flow: column;
+
+    }
+
+    .sidebar nav>ul>li>a {
+        padding: 0.2rem;
+        border-bottom: none;
+    }
+
+    .sidebar nav>ul>li>a:hover {
+        border: none;
+        font-weight: normal;
+    }
+
+}
+
+
